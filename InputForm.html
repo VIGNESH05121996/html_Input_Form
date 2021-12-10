@@ -18,6 +18,7 @@
         <div>
             <label for="pwd">password input type:</label>
             <input type="password" id="pwd" name="pwd">
+            <error-output class="pwd-error" for="pwd"></error-output>
         </div>
         <div>
             <label for="email">email input type:</label>
@@ -89,6 +90,24 @@
             if(telRegex.test(tel.value))
             telError.textContent="";
             else telError.textContent="Number is incorrect";
+        });
+
+        const tel=document.querySelector('#tel');
+        const telError=document.querySelector('.tel-error');
+        tel.addEventListener('input',function(){
+            let telRegex=RegExp('^[1-9]{2}[ ]{1}[0-9]{10}$');
+            if(telRegex.test(tel.value))
+            telError.textContent="";
+            else telError.textContent="Number is incorrect";
+        });
+
+        const pwd=document.querySelector('#pwd');
+        const pwdError=document.querySelector('.pwe-error');
+        pwd.addEventListener('input',function(){
+            let pwdRegex=RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,}$');
+            if(pwdRegex.test(pwd.value))
+            pwdError.textContent="";
+            else pwdError.textContent="Number is incorrect";
         });
 
     </script>
